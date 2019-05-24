@@ -1,0 +1,22 @@
+language: python
+
+image: continuumio/miniconda3:latest
+
+before_script:
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  # Useful for debugging any issues with conda
+  - conda info -a
+
+  - conda create -q -n splinart-env python=$TRAVIS_PYTHON_VERSION
+  - source activate splinart-env
+  - conda install numpy matplotlib six pytest
+  - python setup.py install
+
+tests:
+  stage: test
+  script:
+  # Your test script goes here
+    - pytest tests
+
+
