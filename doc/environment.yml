@@ -1,4 +1,8 @@
 name: Splinart_chaillat
+
+channels:
+  - conda-forge
+
 dependencies:
   - notebook
   - sphinx
